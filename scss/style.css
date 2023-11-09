@@ -1,0 +1,107 @@
+header {
+  background: white;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header h2 {
+  color: gray;
+}
+header nav {
+  display: flex;
+  gap: 10px;
+}
+header nav a {
+  font-size: 20px;
+}
+
+body {
+  background: rgb(45, 37, 37);
+}
+
+h1 {
+  background: white;
+  color: rgb(45, 37, 37);
+  border-radius: 20.9px;
+  font-size: 30px;
+  padding: 10.46px;
+}
+
+h5 {
+  color: white;
+  font-size: 30px;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  gap: 30px;
+}
+section .box1 {
+  background: blue;
+  box-shadow: 0 0 20px blue;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+section .box2 {
+  background: red;
+  box-shadow: 0 0 20px red;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+section .box3 {
+  background: orange;
+  box-shadow: 0 0 20px orange;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.parent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.parent div {
+  background: crimson;
+  border: 1px solid white;
+  border-radius: 10px;
+  padding: 10px;
+  color: white;
+}
+
+.parent {
+  justify-content: space-between;
+  padding: 30px;
+}
+.parent div {
+  padding: 15px;
+}
+
+.card {
+  width: 350px;
+  background: white;
+  border-radius: 10px;
+}
+.card:hover {
+  box-shadow: 0 0 50px rgba(255, 255, 255, 0.454);
+}
+.card-head {
+  background: gray;
+  border-radius: 10px 10px 0 0;
+  padding: 1px;
+}
+.card-body {
+  padding: 10px;
+}
+.card-footer {
+  background: gray;
+  border-radius: 0 0 10px 10px;
+  padding: 5px;
+}/*# sourceMappingURL=style.css.map */

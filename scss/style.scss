@@ -1,0 +1,110 @@
+// Farklı dosyada yazıdğımız stillerin devreye giremsini istiyorsak
+// Bu dosyaları style.scss import ederiz
+@import 'header';
+@import 'variables';
+
+body {
+  background: $black;
+}
+
+h1 {
+  background: white;
+  color: $black;
+  border-radius: $radius;
+  font-size: $font;
+  padding: $pad;
+}
+
+h5 {
+  color: white;
+  font-size: $font;
+}
+
+// Mixin
+@mixin alert($color: blue) {
+  background: $color;
+  box-shadow: 0 0 20px $color;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  gap: 30px;
+
+  .box1 {
+    // alertin stillerini buraya aktar
+    // include > dahil et
+    @include alert;
+  }
+
+  .box2 {
+    // renk parametresiini değiştirdik
+    @include alert($color: red);
+  }
+
+  .box3 {
+    @include alert($color: orange);
+  }
+}
+
+// Extend/Inheritance > Miras Alma
+// Farklı bir class'ın stillerini miras alıp
+// Onların üzeine yenisini yazıp genişletebiliyoruz
+%center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+%color {
+  background: crimson;
+  border: 1px solid white;
+  border-radius: 10px;
+  padding: 10px;
+  color: white;
+}
+.parent {
+  // extend > genişlet
+  // bir class'ın bütün stillerin farklı bir elemana aktarır
+  @extend %center;
+  justify-content: space-between;
+  padding: 30px;
+
+  div {
+    // bu div color'ın bütün stillerini miras alır
+    @extend %color;
+    padding: 15px;
+  }
+}
+
+// & operatörü > İsimlendirmede yardımcı olur
+.card {
+  width: 350px;
+  background: white;
+  border-radius: 10px;
+
+  // hover ve diğer sözde seçicileri verme
+  &:hover {
+    box-shadow: 0 0 50px rgba(255, 255, 255, 0.454);
+  }
+
+  // & işareti > kapsayıcın ismini seçmeye yarar
+  &-head {
+    background: gray;
+    border-radius: 10px 10px 0 0;
+    padding: 1px;
+  }
+
+  &-body {
+    padding: 10px;
+  }
+
+  &-footer {
+    background: gray;
+    border-radius: 0 0 10px 10px;
+    padding: 5px;
+  }
+}
