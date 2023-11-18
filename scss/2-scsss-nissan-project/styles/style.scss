@@ -1,0 +1,261 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,600&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// küüçük ekrnlarda devreye girecek kodlar
+@mixin laptop {
+  // 1400px altınd devreyye girecek stiller
+  @media (max-width: 1200px) {
+    // buraya gelicek kodları include ile göndericez
+    @content;
+  }
+}
+
+@mixin mobile {
+  // 700px altınd devreyye girecek stiller
+  @media (max-width: 700px) {
+    // buraya gelicek kodları include ile göndericez
+    @content;
+  }
+}
+
+body {
+  font-family: 'popins';
+}
+
+h1,
+h2 {
+  font-family: 'EB Garamond';
+}
+
+// styles
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 40px;
+
+  @include mobile {
+    padding: 10px 20px;
+    img {
+      width: 70px !important;
+    }
+  }
+
+  img {
+    width: 100px;
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+    a {
+      padding: 0 20px;
+      border-right: 1px solid;
+      font-family: poppins;
+      cursor: pointer;
+      transition: all 0.5s;
+      text-decoration: none;
+      white-space: nowrap;
+      &:hover {
+        color: crimson;
+        transition: all 0.5s;
+      }
+      &:last-child {
+        border: none;
+      }
+    }
+  }
+}
+
+// hero alanı
+.hero {
+  display: flex;
+  justify-content: space-between;
+  padding: 50px 100px;
+  gap: 200px;
+  background: linear-gradient(rgb(223, 223, 233) 50%, white 50%);
+
+  @include laptop {
+    flex-direction: column;
+    padding: 25px 50px;
+    gap: 150px;
+  }
+
+  @include mobile {
+    padding: 10px 30px;
+    gap: 100px;
+  }
+}
+
+// hero > sol
+.slogan {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  max-width: 500px;
+  margin: auto;
+
+  h1 {
+    font-size: 40px;
+    text-align: center;
+    @include mobile {
+      font-size: 35px;
+    }
+  }
+
+  p {
+    font-family: poppins;
+    color: rgb(122, 122, 122);
+    text-align: center;
+  }
+  img {
+    width: 200px;
+    mix-blend-mode: darken;
+  }
+
+  button {
+    background: crimson;
+    border: none;
+    padding: 10px 20px;
+    border: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    border-radius: 10px;
+    color: white;
+    &:hover {
+      background: rgb(144, 5, 33);
+    }
+  }
+}
+
+// hero > sağ
+.images {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+
+  p {
+    font-family: poppins;
+    text-align: center;
+  }
+
+  &-banner {
+    max-width: 600px;
+    @include mobile {
+      width: 100%;
+    }
+  }
+
+  &-track {
+    max-width: 300px;
+    mix-blend-mode: difference;
+    border-radius: 10px;
+  }
+}
+
+// iç dizayn alanı
+#interior {
+  margin-top: 40px;
+  height: 50vh;
+  background: radial-gradient(rgba(0, 0, 0, 0.5), black),
+    url('/images/interior.jpg');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 70px;
+
+  p {
+    max-width: 500px;
+    font-family: poppins;
+    text-align: center;
+    font-size: 22px;
+  }
+
+  button {
+    background: transparent;
+    border: 1px solid white;
+    padding: 15px 60px;
+    color: white;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: 'Poppins';
+    &:hover {
+      background: white;
+      color: black;
+    }
+  }
+}
+
+// timeline laqanı
+#timeline {
+  padding: 50px;
+
+  @include mobile() {
+    padding: 20px;
+  }
+
+  h2 {
+    font-family: 'Inter';
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+    margin-top: 50px;
+
+    @include laptop {
+      grid-template-columns: 1fr;
+    }
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      font-family: 'Inter';
+      text-align: center;
+
+      img {
+        height: 200px;
+        object-fit: contain;
+      }
+
+      button {
+        width: 300px;
+        margin: auto;
+        border: none;
+        background: crimson;
+        color: white;
+        padding: 10px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all 0.3s;
+
+        &:hover {
+          background: rgb(138, 4, 31);
+        }
+      }
+    }
+  }
+}
+
+// @extend > farklı bir sınıf veya id'nin stillerini miras almaya yarar
+#exterior {
+  @extend #interior;
+  background: radial-gradient(rgba(0, 0, 0, 0.356), black),
+    url('/images/exterior-4.jpg');
+  background-position: center;
+  background-size: cover;
+}
