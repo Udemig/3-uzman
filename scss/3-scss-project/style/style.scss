@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+@mixin medium() {
+  @media (max-width: 1500px) {
+    @content;
+  }
+}
+
+@mixin laptop() {
+  @media (max-width: 1100px) {
+    @content;
+  }
+}
+
+@mixin mobile() {
+  @media (max-width: 700px) {
+    @content;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+$green: #54bd95;
+$black: #191a15;
+
+body {
+  padding: 40px 130px;
+  font-family: Inter;
+
+  @include laptop {
+    padding: 20px 40px;
+  }
+  @include mobile {
+    padding: 10px 20px;
+  }
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  h1 {
+    color: $green;
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 30px;
+
+    @include mobile {
+      font-size: 30px;
+    }
+  }
+
+  nav {
+    display: flex;
+    gap: 40px;
+    a {
+      text-decoration: none;
+    }
+  }
+
+  div {
+    button {
+      border: none;
+      padding: 10px;
+      border-radius: 10px;
+
+      &:nth-child(2) {
+        background: $green;
+        color: white;
+      }
+    }
+  }
+
+  .nav-btn {
+    display: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    background: $green;
+    color: white;
+    cursor: pointer;
+  }
+
+  @include laptop() {
+    nav,
+    div {
+      display: none;
+    }
+
+    .nav-btn {
+      display: block;
+    }
+  }
+}
+
+// hero alanı
+
+#hero {
+  display: flex;
+  gap: 35px;
+  margin-top: 140px;
+
+  @include medium {
+    flex-direction: column;
+    margin-top: 70px;
+    gap: 50px;
+    h1 {
+      font-size: 50px;
+    }
+  }
+
+  @include mobile {
+    margin-top: 50px;
+    h1 {
+      font-size: 40px !important;
+    }
+    img {
+      width: 100%;
+    }
+  }
+
+  .banner {
+    display: flex;
+    justify-content: center;
+    img {
+      object-fit: contain;
+    }
+  }
+
+  .info {
+    h1 {
+      color: $black;
+      font-family: Inter;
+      font-size: 80px;
+      font-weight: 700;
+    }
+
+    img {
+      margin: 30px 0 50px;
+    }
+
+    p {
+      font-weight: 500px;
+      max-width: 461px;
+      line-height: 30px;
+    }
+
+    .buttons {
+      margin-top: 50px;
+      display: flex;
+      gap: 40px;
+
+      button {
+        padding: 20px 30px;
+        border: none;
+        background: none;
+        cursor: pointer;
+
+        &:nth-child(1) {
+          background: $green;
+          color: white;
+          border-radius: 40px;
+        }
+      }
+    }
+  }
+}
+
+// marka alanı
+#brand-area {
+  margin-top: 130px;
+
+  h1 {
+    text-align: center;
+    color: $black;
+    text-align: center;
+    font-size: 40px;
+    font-weight: 700;
+  }
+
+  .brands {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 50px;
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 62px;
+      p {
+        color: #a6a6a6;
+        font-size: 25px;
+        font-weight: 600;
+      }
+    }
+  }
+}
